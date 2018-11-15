@@ -1,9 +1,9 @@
 import uuid
 from uuid import UUID
 
-from csm.person import Person
+import csm.person
 
-class Patient(Person):
+class Patient(csm.person.Person):
     __patient_ID: UUID
 
     def __init__(self, patientName, patientAge):
@@ -19,10 +19,8 @@ class Patient(Person):
     def age(self):
         return self.__age
 
-    @age.setter
-    def age(self, value):
-        assert isinstance(value, int)
-        self.__age = value
+    def book_appointment(self, counsellor, time_slot):
+        counsellor.book_slot(time_slot)
 
 
 

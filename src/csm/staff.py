@@ -1,11 +1,13 @@
 import uuid
 from uuid import UUID
 
-from csm.person import Person
+import csm.person
 
-class Staff(Person):
-    __staffID: UUID
+class Staff(csm.person.Person):
+    staff_ID: UUID
 
-    def __init__(self):
-        self.__staffID = uuid.uuid4()
+    def __init__(self, name):
+        super().__init__(name)
+        self.staff_ID = uuid.uuid4()
+
 
