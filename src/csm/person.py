@@ -1,10 +1,11 @@
 class Person:
-    __name: str
+    """
+    Person class that initilises the name
+    of counsellor, receptionist and other staff objects
+    """
+    _name: str
 
     def __init__(self, person_name):
-        self.__name = person_name
+        self._name = person_name
 
-    @property
-    def name(self):
-        return self.__name
 

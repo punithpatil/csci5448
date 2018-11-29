@@ -1,3 +1,6 @@
-from csm.staff import Staff
-class Receptionist(Staff):
-    def get
+from . import staff
+
+class Receptionist(staff.Staff):
+    """
+    Receptionsis class that can sign up studnets
+    """
