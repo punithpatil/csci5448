@@ -1,0 +1,433 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Counselling Services Management’s documentation! &#8212; Counselling Services Management 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-counselling-services-management-s-documentation">
+<h1>Welcome to Counselling Services Management’s documentation!<a class="headerlink" href="#welcome-to-counselling-services-management-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-main">
+<span id="counselling-services-management-api-main"></span><h1>Counselling Services Management API main<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="main.main">
+<code class="descclassname">main.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main Driver program
+:return:</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.appointment">
+<span id="counselling-services-management-api-appointment"></span><h1>Counselling Services Management API appointment<a class="headerlink" href="#module-csm.appointment" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.appointment.Appointment">
+<em class="property">class </em><code class="descclassname">csm.appointment.</code><code class="descname">Appointment</code><span class="sig-paren">(</span><em>counsellor_ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/appointment.html#Appointment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.appointment.Appointment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that implement the scheduling for each counsellor.</p>
+<dl class="method">
+<dt id="csm.appointment.Appointment.book_slot">
+<code class="descname">book_slot</code><span class="sig-paren">(</span><em>time_slot</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/appointment.html#Appointment.book_slot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.appointment.Appointment.book_slot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_slot</strong> (<em>int</em>) – The time slot number to book</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="csm.appointment.Appointment.time_slots">
+<code class="descname">time_slots</code><a class="headerlink" href="#csm.appointment.Appointment.time_slots" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of time slots of the particular counsellor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.bill">
+<span id="counselling-services-management-api-bill"></span><h1>Counselling Services Management API bill<a class="headerlink" href="#module-csm.bill" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.bill.AbstractBill">
+<em class="property">class </em><code class="descclassname">csm.bill.</code><code class="descname">AbstractBill</code><a class="reference internal" href="_modules/csm/bill.html#AbstractBill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.bill.AbstractBill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Bill class that defines the method amount()
+for Bill and BillProxy to define</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.bill.Bill">
+<em class="property">class </em><code class="descclassname">csm.bill.</code><code class="descname">Bill</code><span class="sig-paren">(</span><em>bill_amount</em>, <em>patient_ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/bill.html#Bill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.bill.Bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Bill class that contains all attributes of the bill
+such as bill_ID, amount due etc</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.bill.BillProxy">
+<em class="property">class </em><code class="descclassname">csm.bill.</code><code class="descname">BillProxy</code><span class="sig-paren">(</span><em>bill</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/bill.html#BillProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.bill.BillProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The BillProxy class that implements the authentication to
+check if the incomming request has the right access to the
+requested Bill object</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.constants">
+<span id="counselling-services-management-api-constants"></span><h1>Counselling Services Management API constants<a class="headerlink" href="#module-csm.constants" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-csm.counsellor">
+<span id="counselling-services-management-api-counsellor"></span><h1>Counselling Services Management API counsellor<a class="headerlink" href="#module-csm.counsellor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.counsellor.Counsellor">
+<em class="property">class </em><code class="descclassname">csm.counsellor.</code><code class="descname">Counsellor</code><span class="sig-paren">(</span><em>counsellor_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/counsellor.html#Counsellor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.counsellor.Counsellor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that implements feature the concellor performs</p>
+<dl class="method">
+<dt id="csm.counsellor.Counsellor.prescribe_medicines">
+<code class="descname">prescribe_medicines</code><span class="sig-paren">(</span><em>patient_name</em>, <em>medicines_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/counsellor.html#Counsellor.prescribe_medicines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.counsellor.Counsellor.prescribe_medicines" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to prescribe medicide for the patient.
+It uses object composition to get prescription objects
+:param patient_name: Name of the patient
+:type patient_name: str
+:param <a href="#id2"><span class="problematic" id="id3">medicines_</span></a>: List of medicines specified by the counsellor
+:type <a href="#id4"><span class="problematic" id="id5">medicines_</span></a>: ste
+:return: Prescription object with relevant details</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="csm.counsellor.Counsellor.schedule">
+<code class="descname">schedule</code><a class="headerlink" href="#csm.counsellor.Counsellor.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of slots for appointments for each counsellor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.insurance">
+<span id="counselling-services-management-api-insurance"></span><h1>Counselling Services Management API insurance<a class="headerlink" href="#module-csm.insurance" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.insurance.InsuranceCreator">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceCreator</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceCreator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Creator class</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.insurance.InsuranceGold">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceGold</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceGold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceGold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete class for Gold Product Insurance</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.insurance.InsuranceGoldCreator">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceGoldCreator</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceGoldCreator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceGoldCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete Gold Insurance Creater</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.insurance.InsuranceProduct">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceProduct</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceProduct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Insurance Product Class</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.insurance.InsuranceSilver">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceSilver</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceSilver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceSilver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete class for Siliver Product Insurance</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.insurance.InsuranceSilverCreator">
+<em class="property">class </em><code class="descclassname">csm.insurance.</code><code class="descname">InsuranceSilverCreator</code><a class="reference internal" href="_modules/csm/insurance.html#InsuranceSilverCreator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.insurance.InsuranceSilverCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete Silver Insurance Creator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.patient">
+<span id="counselling-services-management-api-patient"></span><h1>Counselling Services Management API patient<a class="headerlink" href="#module-csm.patient" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.patient.Patient">
+<em class="property">class </em><code class="descclassname">csm.patient.</code><code class="descname">Patient</code><span class="sig-paren">(</span><em>patientName</em>, <em>patientAge</em>, <em>insurance_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/patient.html#Patient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.patient.Patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents the patient and all functionalities patients can perform</p>
+<dl class="method">
+<dt id="csm.patient.Patient.add_bill">
+<code class="descname">add_bill</code><span class="sig-paren">(</span><em>bill</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/patient.html#Patient.add_bill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.patient.Patient.add_bill" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bill</strong> (<em>bill</em>) – Bill object with patient details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="csm.patient.Patient.age">
+<code class="descname">age</code><a class="headerlink" href="#csm.patient.Patient.age" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Age of the patient</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="csm.patient.Patient.outstanding_bills">
+<code class="descname">outstanding_bills</code><a class="headerlink" href="#csm.patient.Patient.outstanding_bills" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of outstanding bills for the patient</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="csm.patient.Patient.patient_ID">
+<code class="descname">patient_ID</code><a class="headerlink" href="#csm.patient.Patient.patient_ID" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">uuid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Patient ID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="csm.patient.Patient.remove_bill">
+<code class="descname">remove_bill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/patient.html#Patient.remove_bill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.patient.Patient.remove_bill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once the bill has been paid the bill be removed from
+outstanding bills and added to paid bills
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.person">
+<span id="counselling-services-management-api-person"></span><h1>Counselling Services Management API person<a class="headerlink" href="#module-csm.person" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.person.Person">
+<em class="property">class </em><code class="descclassname">csm.person.</code><code class="descname">Person</code><span class="sig-paren">(</span><em>person_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/person.html#Person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.person.Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Person class that initilises the name
+of counsellor, receptionist and other staff objects</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.prescription">
+<span id="counselling-services-management-api-prescription"></span><h1>Counselling Services Management API prescription<a class="headerlink" href="#module-csm.prescription" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.prescription.Prescription">
+<em class="property">class </em><code class="descclassname">csm.prescription.</code><code class="descname">Prescription</code><span class="sig-paren">(</span><em>counsellor</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/prescription.html#Prescription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.prescription.Prescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prescription class that defines attributes of
+the prescipiton object</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.prescription.PrescriptionFactory">
+<em class="property">class </em><code class="descclassname">csm.prescription.</code><code class="descname">PrescriptionFactory</code><a class="reference internal" href="_modules/csm/prescription.html#PrescriptionFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.prescription.PrescriptionFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prescription factory that generates
+Prescription objects if not created.
+If created returns the copy of that object</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="csm.prescription.PrescriptionPrototype">
+<em class="property">class </em><code class="descclassname">csm.prescription.</code><code class="descname">PrescriptionPrototype</code><a class="reference internal" href="_modules/csm/prescription.html#PrescriptionPrototype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.prescription.PrescriptionPrototype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prescription Protoype abstract class
+This class defines the clone abstract method that
+classes inherit must implement</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.receptionist">
+<span id="counselling-services-management-api-receptionist"></span><h1>Counselling Services Management API receptionist<a class="headerlink" href="#module-csm.receptionist" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.receptionist.Receptionist">
+<em class="property">class </em><code class="descclassname">csm.receptionist.</code><code class="descname">Receptionist</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/receptionist.html#Receptionist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.receptionist.Receptionist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receptionsis class that can sign up studnets</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-csm.staff">
+<span id="counselling-services-management-api-staff"></span><h1>Counselling Services Management API staff<a class="headerlink" href="#module-csm.staff" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="csm.staff.Staff">
+<em class="property">class </em><code class="descclassname">csm.staff.</code><code class="descname">Staff</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/staff.html#Staff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#csm.staff.Staff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Staff class that Counsellor, Receptionsit inherit</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h1>Counselling Services Management API appointment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-csm.appointment"></span><dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">csm.appointment.</code><code class="descname">Appointment</code><span class="sig-paren">(</span><em>counsellor_ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/appointment.html#Appointment"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Class that implement the scheduling for each counsellor.</p>
+<dl class="method">
+<dt>
+<code class="descname">book_slot</code><span class="sig-paren">(</span><em>time_slot</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csm/appointment.html#Appointment.book_slot"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_slot</strong> (<em>int</em>) – The time slot number to book</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">time_slots</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of time slots of the particular counsellor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Counselling Services Management</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Punith Patil.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

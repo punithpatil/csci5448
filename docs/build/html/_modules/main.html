@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>main &#8212; Counselling Services Management 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">csm.insurance</span>
+<span class="kn">import</span> <span class="nn">csm.patient</span>
+<span class="kn">import</span> <span class="nn">csm.counsellor</span>
+<span class="kn">import</span> <span class="nn">csm.appointment</span>
+<span class="kn">import</span> <span class="nn">csm.bill</span>
+<span class="kn">import</span> <span class="nn">csm.prescription</span>
+
+<span class="n">patient</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">counsellor</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">prescription</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">bill</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">create_patient</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">patient</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter Patient Name, Patient Age and Insurance Type&quot;</span><span class="p">)</span>
+    <span class="n">patient_name</span><span class="p">,</span> <span class="n">patient_age</span><span class="p">,</span> <span class="n">insurance_type</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">patient</span> <span class="o">=</span>  <span class="n">csm</span><span class="o">.</span><span class="n">patient</span><span class="o">.</span><span class="n">Patient</span><span class="p">(</span><span class="n">patient_name</span><span class="p">,</span> <span class="n">patient_age</span><span class="p">,</span> <span class="n">insurance_type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">patient</span>
+
+
+<span class="k">def</span> <span class="nf">create_counsellor</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">counsellor</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter counsellor name&quot;</span><span class="p">)</span>
+    <span class="n">counsellor_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">counsellor</span> <span class="o">=</span> <span class="n">csm</span><span class="o">.</span><span class="n">counsellor</span><span class="o">.</span><span class="n">Counsellor</span><span class="p">(</span><span class="n">counsellor_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">counsellor</span>
+
+
+<span class="k">def</span> <span class="nf">book_appointment</span><span class="p">(</span><span class="n">counsellor</span><span class="p">,</span> <span class="n">time_slot</span><span class="p">):</span>
+    <span class="n">counsellor_scheduler</span> <span class="o">=</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">schedule</span>
+    <span class="n">counsellor_scheduler</span><span class="o">.</span><span class="n">book_slot</span><span class="p">(</span><span class="n">time_slot</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">counsellor_scheduler</span>
+
+<span class="k">def</span> <span class="nf">prescribe_medicine</span><span class="p">(</span><span class="n">patinet</span><span class="p">,</span> <span class="n">counsellor</span><span class="p">,</span> <span class="n">medicines</span><span class="p">):</span>
+    <span class="n">prescription</span> <span class="o">=</span> <span class="n">csm</span><span class="o">.</span><span class="n">prescription</span><span class="o">.</span><span class="n">Prescription</span><span class="p">(</span><span class="n">patinet</span><span class="p">,</span> <span class="n">counsellor</span><span class="p">)</span>
+    <span class="n">prescription</span><span class="o">.</span><span class="n">prescribe_medicine</span><span class="p">(</span><span class="n">medicines</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prescription</span>
+
+<span class="k">def</span> <span class="nf">pay_bill</span><span class="p">(</span><span class="n">patient</span><span class="p">):</span>
+    <span class="n">bill_to_pay</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">outstanding_bills</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">patient_io</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Book appointment</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;2. Reschedule appointment</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;3. View Bill</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;4. Pay Bill</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;5. Claim Insurance</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;6. View Prescription</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="p">)</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter choice: &quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Councellors Available:&quot;</span><span class="p">,</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">selected_counsellor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counsellors schedule, select slot&quot;</span><span class="p">,</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">time_slots</span><span class="p">)</span>
+            <span class="n">selected_slot</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+            <span class="n">counsellor</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">time_slots</span><span class="p">[</span><span class="n">selected_slot</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The time slot has been selected&quot;</span><span class="p">,</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">time_slots</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You bill ID: &quot;</span><span class="p">,</span> <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">BillProxy</span><span class="p">(</span><span class="n">bill</span><span class="p">)</span><span class="o">.</span><span class="n">bill_ID</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You bill amount Due: &quot;</span><span class="p">,</span> <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">BillProxy</span><span class="p">(</span><span class="n">bill</span><span class="p">)</span><span class="o">.</span><span class="n">amount</span><span class="p">(</span><span class="n">patient</span><span class="o">.</span><span class="n">patient_ID</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Payment gateway&quot;</span><span class="p">)</span>
+            <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">BillProxy</span><span class="p">(</span><span class="n">bill</span><span class="p">)</span><span class="o">.</span><span class="n">payBill</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">BillProxy</span><span class="p">(</span><span class="n">bill</span><span class="p">)</span><span class="o">.</span><span class="n">payment</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The prescribed medicines: &quot;</span><span class="p">,</span> <span class="n">prescription</span><span class="o">.</span><span class="n">medicines</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+
+<span class="k">def</span> <span class="nf">counsellor_io</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">prescription</span><span class="p">,</span> <span class="n">bill</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Check your schedule</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;2. Write Prescription&quot;</span>
+              <span class="p">)</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter choice: &quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your schedule is: &quot;</span><span class="p">,</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">time_slots</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter medicine list&quot;</span><span class="p">)</span>
+            <span class="n">medicine_list</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+            <span class="n">prescription</span> <span class="o">=</span> <span class="n">counsellor</span><span class="o">.</span><span class="n">prescribe_medicines</span><span class="p">(</span><span class="n">patient</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">medicine_list</span><span class="p">)</span>
+            <span class="n">bill</span> <span class="o">=</span> <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">Bill</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">patient</span><span class="o">.</span><span class="n">patient_ID</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+
+<span class="k">def</span> <span class="nf">main_screen_options</span><span class="p">(</span><span class="n">choice</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="n">create_patient</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="n">create_counsellor</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="n">patient_io</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="n">counsellor_io</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">choice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main_screen</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Add new Patient</span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;2. Add new Counsellor</span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;3. Login in as Patient</span><span class="se">\n</span><span class="s2">&quot;</span>
+          <span class="s2">&quot;4. Login in as Counsellor</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../index.html#main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main Driver program</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">main_screen</span><span class="p">()</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter Choice: &quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">main_screen_options</span><span class="p">(</span><span class="n">choice</span><span class="p">)()</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Add new patient&quot;</span><span class="p">)</span>
+    <span class="n">new_patient</span> <span class="o">=</span> <span class="n">create_patient</span><span class="p">(</span><span class="s2">&quot;Punith Patil&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">new_patient</span><span class="o">.</span><span class="n">patient_ID</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">new_patient</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">new_patient</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Create counsellor&quot;</span><span class="p">)</span>
+    <span class="n">new_counsellor</span> <span class="o">=</span> <span class="n">create_counsellor</span><span class="p">(</span><span class="s2">&quot;Kelly&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kelly&#39;s appointment slots&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">new_counsellor</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">time_slots</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Book Kellys available slot&quot;</span><span class="p">)</span>
+    <span class="n">counsellor_scheduler</span> <span class="o">=</span> <span class="n">book_appointment</span><span class="p">(</span><span class="n">new_counsellor</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available slots&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">counsellor_scheduler</span><span class="o">.</span><span class="n">time_slots</span><span class="p">)</span>
+
+    <span class="n">bill_obj</span> <span class="o">=</span> <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">Bill</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">test_bill_proxy</span> <span class="o">=</span> <span class="n">csm</span><span class="o">.</span><span class="n">bill</span><span class="o">.</span><span class="n">BillProxy</span><span class="p">(</span><span class="n">bill_obj</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test_bill_proxy</span><span class="o">.</span><span class="n">amount</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Counselling Services Management</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Punith Patil.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
